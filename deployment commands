@@ -1,0 +1,4 @@
+to scale deployment -> kubectl scale deploy nameofdeployment --replicas=5
+to roll back deployment -> kubectl rollout undo deploy nameofdeployment
+to udpate image -> kubectl set image deploy/deployment contaniername=imagename
+to check history -> kubectl rollout history deploy deployname
