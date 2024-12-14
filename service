@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: myfirstsvc
+   labels:
+      env: test
+spec:
+  selector:
+     app: front
+  ports:
+    - protocl: tcp
+      port: 80
+      targetPort: 443
+  type: ClusteIP    
+
+  apiVerion: v1
+  kind: Service
+  metadata: 
+     name: myfirstssvc
+     labels:
+        app: test
+  spec:
+    selectors:
+       env: test
+    ports:
+       - protocol: tcp
+         port: 80
+         targetPort: 443
+    type: NodePort
