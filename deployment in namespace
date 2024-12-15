@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: first-deployment
+   namespace: sahil
+   labels:
+      app: frontend
+      env: test
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+         env: test
+   template:
+      metadata:
+          labels:
+             env: test
+      spec:
+         containers:
+             - name: c01
+               image: nginx
+               ports:
+                 - containerPort: 443
+
+      
