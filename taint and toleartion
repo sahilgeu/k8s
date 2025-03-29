@@ -1,0 +1,21 @@
+kubectl taint node minikube gpu=true:NoSchedule -> to taint a node
+kubectl taint node minikube gpu=true:NoSchedule- -> to untaint a node
+
+
+apiVersion: v1
+kind: Pod 
+metadata:
+   name: delhipod
+   labels:
+      app: dev
+spec:
+   containers:
+       - name: c01
+         image: nginx
+   tolerations:
+      - key: "gpu"
+        operator: "Equal"
+        value: "true"
+        effect: "NoSchedule"
+      
+
