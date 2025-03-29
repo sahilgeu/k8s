@@ -1,0 +1,24 @@
+kubectl label node minikube disktype=ssd -> to assign labels
+kubectl label node minikube disktype- -> to remove labels
+
+apiVersion: v1
+kind: Pod 
+metadata:
+   name: delhipod
+   labels:
+      app: dev
+spec:
+   containers:
+       - name: c01
+         image: nginx
+   affinity:
+     nodeAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+                nodeSelectorTerms:
+                     - matchExpressions:
+                          - key: disktype
+                            operator: In
+                            values:
+                               - ssd
+                               
+      
