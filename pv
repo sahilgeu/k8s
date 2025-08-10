@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: c01
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: saj
+  hostPath:
+    path: /mnt/data
+    type: DirectoryOrCreate
+
+~                                                                                                                                    ~                       
